@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { GitprofileComponent } from './gitprofile/gitprofile.component';
+import { GitrepoComponent } from './gitrepo/gitrepo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    GitprofileComponent
+    GitprofileComponent,
+    GitrepoComponent
   ],
   imports: [
     BrowserModule,
