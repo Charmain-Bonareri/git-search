@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat&family=Oregano&family=Rock+Salt&family=Square+Peg&display=swap');
+
+
+*{
+  /* padding: 0px;
+  margin: 0px; */
+  font-family: 'Indie Flower', cursive;
+  background-color: #121212;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+}
