@@ -9,6 +9,7 @@ import { GitprofileComponent } from './gitprofile/gitprofile.component';
 import { GitrepoComponent } from './gitrepo/gitrepo.component';
 import { UserService } from './user.service';
 import { RepoService } from './repo.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,12 @@ import { RepoService } from './repo.service';
     GitprofileComponent,
     GitrepoComponent
   ],
-  
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [UserService,RepoService],
   bootstrap: [AppComponent]

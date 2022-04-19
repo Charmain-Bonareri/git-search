@@ -7,7 +7,7 @@ import { RepoService } from '../repo.service';
   templateUrl: './gitprofile.component.html',
   styleUrls: ['./gitprofile.component.css']
 })
-export class UsersearchComponent implements OnInit {
+export class GitprofileComponent implements OnInit {
   username: string = '';
   user: any;
   repos: any;
@@ -29,7 +29,7 @@ export class UsersearchComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    this.onSubmit("Dindihub")
+    this.onSubmit("Charmain-Bonareri")
     console.log("new")
   }
 }
