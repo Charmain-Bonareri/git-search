@@ -9,7 +9,7 @@
       placeholder="Search for users and repositories...."
     />
     </div>
-    <button class="animate__animated animate__rubberBand"
+    <button class="animate__animated animate__rubberBand animate__repeat-3"
     routerLink="usersearch"
     [disabled]="username.length < 2"
   appHover>
@@ -38,7 +38,7 @@
               <a href="{{user.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
 
           </div>
-          <div class="col-md-2"></div>
+
           <div class="col-md-6">
 
            <button id="btn1"><span >{{user.followers}} Followers</span></button>
@@ -48,8 +48,11 @@
             <hr>
 
 
+
+
+
             <div class="card">
-             <ul class="list-group list-group-flush">
+             <ul >
 
               <li class="list-group-item" *ngIf="user.location">Lives in: {{user.location}}</li>
               <li class="list-group-item" *ngIf="user.blog">Blog: {{user.blog}}</li>
@@ -67,19 +70,19 @@
 
     <hr>
     <div class="card">
-      <h5 class="card-header">Repos</h5>
-      <div class="card-body col-md-12" >
+      <h5 class="card-header">Repositories</h5>
 
 
-          <div class="card">
+
+          <div class="card" style="width: 36rem;">
             <ul class="list-group list-group-flush" *ngFor="let repo of repos">
               <li class="list-group-item">
                 <div class="row">
                   <div class="col-md-9">
-                  <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+                  <a href="{{repo.html_url}}" target="_blank" style="color: cyan; font-size: larger; font-family: 'Montserrat', sans-serif;">{{repo.name}}</a>
 
                   <small>(Created days ago)</small>
-                  <p>{{repo.description}}</p>
+                  <p style=" font-family: 'Montserrat', sans-serif;font-size: medium;">{{repo.description}}</p>
                 </div>
                 <div class="col-md-3">
                   <span class="badge badge-primary">{{repo.starred_url}} Starred 2</span>
@@ -97,4 +100,4 @@
         </div>
 
     </div>
-  </div>
+
