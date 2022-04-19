@@ -1,8 +1,15 @@
-<p>gitprofile works!</p>
-<form (ngSubmit)="onSubmit(username)">
-  <input type="text"class="input" name="username" [(ngModel)]="username"  placeholder="Search for users and repositories...."/>
-
-  <button
+<div class="border container searchPadding">
+  <form (ngSubmit)="onSubmit(username)">
+    <div class="form-group">
+      <input
+      type="text"
+      class="input"
+      name="username"
+      [(ngModel)]="username"
+      placeholder="Search for users and repositories...."
+    />
+    </div>
+    <button
     class="btnuser"
     routerLink="usersearch"
     [disabled]="username.length < 2"
@@ -11,57 +18,79 @@
   </button>
   <!-- <button class="btnrepo"  routerLink="reposearch" [disabled]="username.length<2">Repo Search </button> -->
 </form>
-<div class="container-all">
-  <div *ngIf="user" class="container">
-    <div class="user-details">
-      <h2>PROFILE</h2>
-      <span>
-        <button disabled="disabled">Username: {{ user.login }}</button>
-      </span>
-      <span>
-        <button disabled="disabled">Location: {{ user.location }}</button>
-      </span>
-      <span>
-        <button disabled="disabled">
-          Followers: {{ user.followers }}
-        </button></span
-      >
-      <span
-        ><button disabled="disabled">Following: {{ user.following }}</button>
-      </span>
-      <div></div>
-      <div class="panel-body">
-        <div>
-          <img src="{{ user.avatar_url }}" alt="" />
+
+
+  </div>
+  <br>
+
+  <div class= "topPadding container border" *ngIf = "user">
+
+      <div class="card">
+      <h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+
+            <img src="{{user.avatar_url}}" class="img-thumbnail img-fluid">
+            <hr>
+
+              <a href="{{user.html_url}}" class="btn btn-outline-success btn-block" target="_blank"> GitHub Profile</a>
+
+          </div>
+          <div class="col-md-2"></div>
+          <div class="col-md-6">
+
+           <button id="btn1"><span >{{user.followers}} Followers</span></button>
+            <span class="badge badge-secondary">{{user.following}} Following</span>
+            <span class="badge badge-success"> Location {{user.location }} </span>
+            <span class="badge badge-info">{{user.public_repos}} Public Repos</span>
+            <hr>
+
+
+            <div class="card">
+             <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngIf="user.name">Name: {{user.name}}</li>
+              <li class="list-group-item" *ngIf="user.location">Lives in: {{user.location}}</li>
+              <li class="list-group-item" *ngIf="user.blog">Blog: {{user.blog}}</li>
+              <li class="list-group-item" *ngIf="user.company">Company: {{user.company}}</li>
+           </ul>
+          </div>
+
+          </div>
         </div>
-        <hr />
-        <div appHover >Bio: {{ user.bio }}</div>
-        <hr />
-        <div>Created at: {{ user.created_at | date:"medium"}}</div>
       </div>
-      <hr />
-      <p>Public Repos: {{ user.public_repos }}</p>
-      <hr />
-      <p>Public Gists: {{ user.public_gists }}</p>
-      <hr />
-      <p>
-        <button>
-          <a href="{{ user.html_url }}" target="_blank">View my Github</a>
-        </button>
-      </p>
+    </div>
+
+    <hr>
+    <div class="card">
+      <h5 class="card-header">Repos</h5>
+      <div class="card-body col-md-12" >
+
+
+          <div class="card">
+            <ul class="list-group list-group-flush" *ngFor="let repo of repos">
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-md-9">
+                  <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+
+                  <small>(Created days ago)</small>
+                  <p>{{repo.description}}</p>
+                </div>
+                <div class="col-md-3">
+                  <span class="badge badge-primary">{{repo.watchers}} Watcher</span>
+                  <span class="badge badge-info">{{repo.forks}} Forks</span>
+                  <br>
+                  <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info" style="width: 7.5rem">See Repo</a>
+                </div>
+
+
+                </div>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+
     </div>
   </div>
-
-  <div class="repo-container">
-    <div><h2>MY REPOSITORIES</h2></div>
-
-    <div class="repo-card" *ngFor="let repo of repos">
-      <ul>
-        <li>Repo Name: {{ repo.name }}</li>
-        <li>Repo Forks: {{ repo.forks_count }}</li>
-        <li>Repo url: {{ repo.html_url }}</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
