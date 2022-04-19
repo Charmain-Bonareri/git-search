@@ -1,1 +1,67 @@
 <p>gitprofile works!</p>
+<form (ngSubmit)="onSubmit(username)">
+  <input type="text"class="input" name="username" [(ngModel)]="username"  placeholder="Search for users and repositories...."/>
+
+  <button
+    class="btnuser"
+    routerLink="usersearch"
+    [disabled]="username.length < 2"
+  appHover>
+  Search User
+  </button>
+  <!-- <button class="btnrepo"  routerLink="reposearch" [disabled]="username.length<2">Repo Search </button> -->
+</form>
+<div class="container-all">
+  <div *ngIf="user" class="container">
+    <div class="user-details">
+      <h2>PROFILE</h2>
+      <span>
+        <button disabled="disabled">Username: {{ user.login }}</button>
+      </span>
+      <span>
+        <button disabled="disabled">Location: {{ user.location }}</button>
+      </span>
+      <span>
+        <button disabled="disabled">
+          Followers: {{ user.followers }}
+        </button></span
+      >
+      <span
+        ><button disabled="disabled">Following: {{ user.following }}</button>
+      </span>
+      <div></div>
+      <div class="panel-body">
+        <div>
+          <img src="{{ user.avatar_url }}" alt="" />
+        </div>
+        <hr />
+        <div appHover >Bio: {{ user.bio }}</div>
+        <hr />
+        <div>Created at: {{ user.created_at | date:"medium"}}</div>
+      </div>
+      <hr />
+      <p>Public Repos: {{ user.public_repos }}</p>
+      <hr />
+      <p>Public Gists: {{ user.public_gists }}</p>
+      <hr />
+      <p>
+        <button>
+          <a href="{{ user.html_url }}" target="_blank">View my Github</a>
+        </button>
+      </p>
+    </div>
+  </div>
+
+  <div class="repo-container">
+    <div><h2>MY REPOSITORIES</h2></div>
+
+    <div class="repo-card" *ngFor="let repo of repos">
+      <ul>
+        <li>Repo Name: {{ repo.name }}</li>
+        <li>Repo Forks: {{ repo.forks_count }}</li>
+        <li>Repo url: {{ repo.html_url }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
