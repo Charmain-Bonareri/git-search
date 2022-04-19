@@ -13,6 +13,8 @@
   color: white;
   /* background-image: url(./assets/header.png); */
   background-image: url(./assets/bg2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 
 
 }
