@@ -1,3 +1,5 @@
+
+
 <div class="container searchPadding">
   <form (ngSubmit)="onSubmit(username)">
     <div class="form-group">
@@ -9,23 +11,18 @@
       placeholder="Search for users and repositories...."
     />
     </div>
-    <button class="animate__animated animate__rubberBand animate__repeat-3"
-    routerLink="usersearch"
-    [disabled]="username.length < 2"
-  appHover>
-  Search User
-  </button>
-  <!-- <button class="btnrepo"  routerLink="reposearch" [disabled]="username.length<2">Repo Search </button> -->
-</form>
-
-
-  </div>
+    <button class="animate__animated animate__rubberBand animate__delay-3s animate__repeat-4" routerLink="usersearch" [disabled]="username.length < 2"
+      appHover> Search User
+    </button>
+  </form>
+</div>
   <br>
 
-  <div class= "topPadding container " *ngIf = "user">
-    <h1>GitHub Profile</h1>
 
+  <div class= "topPadding container " *ngIf = "user">
       <div class="card">
+        <h1 class="animate__animated animate__heartBeat animate__repeat-3">GitHub Profile</h1>
+
       <h5 class="card-header">{{user.name}} <small>({{user.login}})</small></h5>
       <p>{{user.bio}}</p>
       <div class="card-body">
@@ -45,11 +42,7 @@
             <span class="badge badge-secondary">{{user.following}} Following</span>
             <span class="badge badge-success"> Location {{user.location }} </span>
             <span class="badge badge-info">{{user.public_repos}} Public Repos</span>
-            <hr>
-
-
-
-
+             <hr>
 
             <div class="card">
              <ul >
@@ -67,37 +60,39 @@
         </div>
       </div>
     </div>
+  </div>
 
     <hr>
-    <div class="card">
-      <h5 class="card-header">Repositories</h5>
 
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="animate__animated animate__bounce animate__repeat-3">Repositories</h2>
+           <div class="row">
+           <div *ngFor="let repo of repos" class="card2 bg-light mb-3"  style="width: 24rem;">
+            <div class="card-body">
 
+              <a href="{{repo.html_url}}" target="_blank" style="color: cyan; font-size: larger; font-family: 'Montserrat', sans-serif;">{{repo.name}}</a>
 
-          <div class="card" style="width: 36rem;">
-            <ul class="list-group list-group-flush" *ngFor="let repo of repos">
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-md-9">
-                  <a href="{{repo.html_url}}" target="_blank" style="color: cyan; font-size: larger; font-family: 'Montserrat', sans-serif;">{{repo.name}}</a>
+              <p class="repo.description">{{repo.description}}</p>
+              <p class="starred url">{{repo.starred_url}}</p>
+              <p class="repodate"><span>Created on: {{repo.completeDate|date}} days ago</span></p>
+              <p class="forks"> Forks : {{repo.forks}}</p>
+              <p class="forks"> Starred : 2 {{repo.starred_url}} </p>
 
-                  <small>(Created days ago)</small>
-                  <p style=" font-family: 'Montserrat', sans-serif;font-size: medium;">{{repo.description}}</p>
-                </div>
-                <div class="col-md-3">
-                  <span class="badge badge-primary">{{repo.starred_url}} Starred 2</span>
-                  <span class="badge badge-info">{{repo.forks}} Forks</span>
-                  <br>
-                  <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info" style="width: 7.5rem">See Repo</a>
-                </div>
+              <a href="{{repo.html_url}}" target="_blank" class="btn btn-outline-info animate__animated animate__rubberBand animate__repeat-3"style="width: 7.5rem">See Repo</a>
 
+              <p class="card-text"><small class="text-muted">Last updated 2 mins ago</small></p>
 
-                </div>
-
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
+      <div>
+  </div>
 
-    </div>
+
+
+
+
 
