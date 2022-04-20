@@ -10,13 +10,15 @@ import { GitrepoComponent } from './gitrepo/gitrepo.component';
 import { UserService } from './user.service';
 import { RepoService } from './repo.service';
 import { FormsModule } from '@angular/forms';
+import { DateCountPipe } from './date-count.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
     GitprofileComponent,
-    GitrepoComponent
+    GitrepoComponent,
+    DateCountPipe
   ],
 
   imports: [
