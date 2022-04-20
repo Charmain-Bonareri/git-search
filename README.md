@@ -11,7 +11,7 @@ Git-search is an app where users may get to explore github repositories.
 * [Behaviour Driven Development](#BDD)
 * [Technologies](#technologies)
 * [Licence](#licence)
-* [Authors information](#contact
+* [Authors information](#contact)
 
 ## Description
 git-search is a website where users may enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories. A person can also look for repositories.
