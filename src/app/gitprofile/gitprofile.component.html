@@ -76,7 +76,7 @@
 
               <p class="repo.description">{{repo.description}}</p>
               <p class="starred url">{{repo.starred_url}}</p>
-              <p class="repodate"><span>Created on: {{repo.completeDate|date}} days ago</span></p>
+              <p class="repodate"><span>Created at: {{ user.created_at | date:"medium"}}</span></p>
               <p class="forks"> Forks : {{repo.forks}}</p>
               <p class="forks"> Starred : 2 {{repo.starred_url}} </p>
 
